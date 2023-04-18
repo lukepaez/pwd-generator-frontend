@@ -5,7 +5,6 @@ export const GeneratePassword = (props: { type: string; headers: any }) => {
   const { refetch } = useGetPassword(props.type, props.headers);
 
   const getPassword = () => {
-    console.log("my headers are: ", props.headers);
     refetch();
   };
   return (

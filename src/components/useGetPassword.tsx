@@ -9,7 +9,6 @@ export const useGetPassword = (type: string, headers: any) => {
         if (res.ok) return res.json();
       })
       .then((json) => {
-        console.log("Res from API: ", json);
         return json[type];
       });
   });
