@@ -5,7 +5,7 @@ export const Nav = () => {
     <>
       <Flex
         as="nav"
-        bg="purple.300"
+        bg="green.300"
         color="white"
         justifyContent="flex-start"
         alignItems="center"

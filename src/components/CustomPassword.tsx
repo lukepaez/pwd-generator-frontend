@@ -14,7 +14,7 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import { PasswordTypeRadio } from "./PasswordTypeRadio";
-import { useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { Headers } from "../types";
 
 export const CustomPassword = (props: {
@@ -30,6 +30,32 @@ export const CustomPassword = (props: {
     setSliderValue(length);
     props.setHeaders({ ...props.headers, length: length });
   };
+
+  const handleNumbersCheckbox = (e: any) => {
+    props.setHeaders({
+      ...props.headers,
+      numbers: JSON.stringify(e.target.checked),
+    });
+  };
+
+  const handleUppercaseCheckbox = (e: any) => {
+    props.setHeaders({
+      ...props.headers,
+      uppercase: JSON.stringify(e.target.checked),
+    });
+  };
+
+  const handleSymbolsCheckbox = (e: any) => {
+    props.setHeaders({
+      ...props.headers,
+      symbols: JSON.stringify(e.target.checked),
+    });
+  };
+
+  useEffect(() => {
+    console.log(props.headers);
+  }, [props.headers]);
+
   return (
     <>
       <Container height={250} maxW="700px" display="flex" marginTop={25}>
@@ -44,7 +70,7 @@ export const CustomPassword = (props: {
                 defaultValue={12}
                 min={12}
                 max={25}
-                colorScheme="purple"
+                colorScheme="green"
                 onChange={(v) => setState(v)}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
@@ -54,7 +80,7 @@ export const CustomPassword = (props: {
                 </SliderTrack>
                 <Tooltip
                   hasArrow
-                  bg="purple.200"
+                  bg="green.400"
                   color="white"
                   placement="top"
                   isOpen={showTooltip}
@@ -66,7 +92,7 @@ export const CustomPassword = (props: {
               <Input
                 variant="filled"
                 backgroundColor="gray.100"
-                focusBorderColor="purple.200"
+                focusBorderColor="green.200"
                 readOnly={true}
                 size="lg"
                 width={100}
@@ -81,13 +107,28 @@ export const CustomPassword = (props: {
         </Container>
         <Container maxW="250px" display="flex">
           <Stack spacing={5} direction="column">
-            <Checkbox colorScheme="purple" size="lg" defaultChecked>
+            <Checkbox
+              colorScheme="green"
+              size="lg"
+              defaultChecked
+              onChange={(e) => handleNumbersCheckbox(e)}
+            >
               Numbers
             </Checkbox>
-            <Checkbox colorScheme="purple" size="lg" defaultChecked>
+            <Checkbox
+              colorScheme="green"
+              size="lg"
+              defaultChecked
+              onChange={(e) => handleUppercaseCheckbox(e)}
+            >
               Uppercase
             </Checkbox>
-            <Checkbox colorScheme="purple" size="lg" defaultChecked>
+            <Checkbox
+              colorScheme="green"
+              size="lg"
+              defaultChecked
+              onChange={(e) => handleSymbolsCheckbox(e)}
+            >
               Symbols
             </Checkbox>
           </Stack>

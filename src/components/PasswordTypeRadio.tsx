@@ -11,10 +11,10 @@ export const PasswordTypeRadio = (props: { type: string; setType: any }) => {
           size="lg"
         >
           <Stack spacing={5} direction="row">
-            <Radio colorScheme="purple" value="password">
+            <Radio colorScheme="green" value="password">
               Password
             </Radio>
-            <Radio colorScheme="purple" value="passphrase">
+            <Radio colorScheme="green" value="passphrase">
               Passphrase
             </Radio>
           </Stack>

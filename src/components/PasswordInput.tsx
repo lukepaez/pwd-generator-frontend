@@ -16,7 +16,7 @@ export const PasswordInput = (props: Headers) => {
         <Input
           variant="filled"
           backgroundColor="gray.100"
-          focusBorderColor="purple.200"
+          focusBorderColor="green.200"
           readOnly={true}
           size="lg"
           width={700}
