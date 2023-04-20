@@ -1,7 +1,8 @@
 import { Button, Container, Divider } from "@chakra-ui/react";
 import { useGetPassword } from "./useGetPassword";
+import { Headers } from "../types";
 
-export const GeneratePassword = (props: { type: string; headers: any }) => {
+export const GeneratePassword = (props: { type: string; headers: Headers }) => {
   const { refetch } = useGetPassword(props.type, props.headers);
 
   const getPassword = () => {

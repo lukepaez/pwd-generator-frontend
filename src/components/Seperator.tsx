@@ -1,6 +1,6 @@
 import { Divider } from "@chakra-ui/react";
 
-export const Underline = () => {
+export const Seperator = () => {
   return (
     <>
       <Divider

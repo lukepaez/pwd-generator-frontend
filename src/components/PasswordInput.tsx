@@ -4,11 +4,12 @@ import { IconButton } from "@chakra-ui/react";
 import { useGetPassword } from "./useGetPassword";
 import "../styles/PasswordInput.css";
 import { useState } from "react";
+import { Headers } from "../types";
 
-export const PasswordInput = (props: { headers: any }) => {
-  const [passwordType, setPasswordType] = useState("password");
+export const PasswordInput = (props: Headers) => {
+  const [passwordType, setPasswordType] = useState<string>("password");
 
-  const { data } = useGetPassword(passwordType, props.headers);
+  const { data } = useGetPassword(passwordType, props);
   return (
     <>
       <Container maxW="700px" display="flex" alignItems="center">
